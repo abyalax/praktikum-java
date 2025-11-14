@@ -24,6 +24,7 @@ public class Arrays<T> {
 
     // menambah elemen di akhir
     public void add(T value) {
+        ensureCapacity();
         data[size++] = value;
     }
 
