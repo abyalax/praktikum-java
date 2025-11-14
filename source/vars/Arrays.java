@@ -5,7 +5,7 @@ public class Arrays<T> {
     private int size;
     private int capacity;
 
-    private static final int DEFAULT_CAPACITY = 4;
+    private static final int DEFAULT_CAPACITY = 5;
 
     // konstruktor default
     public Arrays() {
@@ -24,6 +24,7 @@ public class Arrays<T> {
 
     // menambah elemen di akhir
     public void add(T value) {
+        ensureCapacity();
         data[size++] = value;
     }
 
@@ -36,7 +37,21 @@ public class Arrays<T> {
 
     // ubah elemen
     public void set(int index, T value) {
+        checkIndex(index);
         data[index] = value;
+    }
+
+    // hapus elemen di posisi tertentu
+    public void remove(int index) {
+        checkIndex(index);
+        for (int i = index; i < size - 1; i++) {
+            data[i] = data[i + 1];
+        }
+        data[--size] = null;
+    }
+
+    public int size() {
+        return size;
     }
 
     private void ensureCapacity() {

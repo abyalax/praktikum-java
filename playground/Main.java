@@ -4,10 +4,14 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello Java");
 
-        Arrays arrData = new Arrays();
-        Arrays secondArrData = new Arrays(6);
+        Arrays<Integer> arrData = new Arrays<Integer>();
 
-        System.out.println(arrData);
+        arrData.add(1);
+        arrData.add(2);
+        arrData.add(3);
+        arrData.add(4);
 
+        System.out.println(arrData.get(0));
+        arrData.print();
     }
 }
