@@ -1,4 +1,4 @@
-package vars;
+package vars.linkedlist;
 
 import node.DoubleNode;
 
@@ -68,7 +68,8 @@ public class DoubleLinkedList<T> {
 
     // Hapus di awal
     public void removeFirst() {
-        if (head == null) return;
+        if (head == null)
+            return;
         if (head == tail) {
             head = tail = null;
         } else {
@@ -80,7 +81,8 @@ public class DoubleLinkedList<T> {
 
     // Hapus di akhir
     public void removeLast() {
-        if (tail == null) return;
+        if (tail == null)
+            return;
         if (head == tail) {
             head = tail = null;
         } else {
@@ -92,14 +94,16 @@ public class DoubleLinkedList<T> {
 
     // Hapus berdasarkan data
     public void remove(T data) {
-        if (head == null) return;
+        if (head == null)
+            return;
 
         DoubleNode<T> current = head;
         while (current != null && !current.data.equals(data)) {
             current = current.next;
         }
 
-        if (current == null) return;
+        if (current == null)
+            return;
 
         if (current == head) {
             removeFirst();
@@ -116,7 +120,8 @@ public class DoubleLinkedList<T> {
     public boolean contains(T data) {
         DoubleNode<T> current = head;
         while (current != null) {
-            if (current.data.equals(data)) return true;
+            if (current.data.equals(data))
+                return true;
             current = current.next;
         }
         return false;

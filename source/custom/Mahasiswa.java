@@ -17,6 +17,7 @@ public class Mahasiswa {
         return name;
     }
 
+    /** This is Advanced Use, usefull for next implementation of data structure */
     @Override
     public boolean equals(Object obj) {
         // check reference
@@ -24,7 +25,7 @@ public class Mahasiswa {
             return true;
         // check instance class
         if (obj == null || getClass() != obj.getClass())
-            return false; 
+            return false;
         // casting object ke mahasiswa
         Mahasiswa other = (Mahasiswa) obj;
         // check tiap fieldnya
@@ -33,6 +34,7 @@ public class Mahasiswa {
                 npm.equals(other.npm);
     }
 
+    /** This is Advanced Use, usefull for next implementation of data structure */
     @Override
     public int hashCode() {
         int result = name.hashCode();

@@ -1,4 +1,4 @@
-package vars;
+package vars.linkedlist;
 
 import node.SingleNode;
 
@@ -55,16 +55,36 @@ public class SingleLinkedList<T> {
         size++;
     }
 
+    public T pop() {
+        if (head == null)
+            return null;
+        T value = (T) head.data;
+        // pindahkan node head ke node selanjutnya
+        // tidak perlu secara explisit set null, karena di linkedlist
+        // node yang tidak memiliki referensi otomatis di hapus (eligible for GC)
+        head = head.next;
+        size--;
+        return value;
+    }
+
+    public T peek() {
+        if (head == null)
+            return null;
+        return (T) head.data;
+    }
+
     // Hapus di awal
     public void removeFirst() {
-        if (head == null) return;
+        if (head == null)
+            return;
         head = head.next;
         size--;
     }
 
     // Hapus di akhir
     public void removeLast() {
-        if (head == null) return;
+        if (head == null)
+            return;
 
         if (head.next == null) {
             head = null;
@@ -80,7 +100,8 @@ public class SingleLinkedList<T> {
 
     // Hapus berdasarkan nilai
     public void remove(T data) {
-        if (head == null) return;
+        if (head == null)
+            return;
 
         if (head.data.equals(data)) {
             head = head.next;
@@ -103,7 +124,8 @@ public class SingleLinkedList<T> {
     public boolean contains(T data) {
         SingleNode<T> current = head;
         while (current != null) {
-            if (current.data.equals(data)) return true;
+            if (current.data.equals(data))
+                return true;
             current = current.next;
         }
         return false;

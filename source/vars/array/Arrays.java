@@ -1,4 +1,4 @@
-package vars;
+package vars.array;
 
 public class Arrays<T> {
     private Object[] data;
@@ -54,6 +54,14 @@ public class Arrays<T> {
         return size;
     }
 
+    @SuppressWarnings("unchecked")
+    public T pop() {
+        T value = (T) data[--size];
+
+        data[size] = null;
+        return value;
+    }
+
     private void ensureCapacity() {
         if (size == capacity) {
             // naikkan kapasitas 1.5x (dibulatkan ke atas)
@@ -84,5 +92,16 @@ public class Arrays<T> {
                 System.out.print(", ");
         }
         System.out.println("]");
+    }
+
+    public void printStack() {
+        System.out.print("[ ");
+        for (int i = size - 1; i >= 0; i--) {
+            System.out.print(data[i]);
+            if (i > 0) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println(" ]");
     }
 }
