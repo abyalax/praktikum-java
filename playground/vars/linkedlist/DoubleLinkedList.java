@@ -1,4 +1,4 @@
-package vars;
+package vars.linkedlist;
 
 import node.DoubleNode;
 
@@ -36,7 +36,7 @@ public class DoubleLinkedList<T> {
         System.out.println("null");
     }
 
-     // Cetak mundur
+    // Cetak mundur
     public void printBackward() {
         DoubleNode<T> current = tail;
         System.out.print("Backward: ");

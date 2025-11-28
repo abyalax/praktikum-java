@@ -1,10 +1,7 @@
-import vars.Arrays;
-import vars.DoubleLinkedList;
-import vars.SingleLinkedList;
+import vars.stack.StaticStack;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello Java");
 
         // Arrays<Integer> arrData = new Arrays<Integer>(4);
 
@@ -26,15 +23,23 @@ public class Main {
 
         // linkedList.printList();
 
-        DoubleLinkedList<Integer> doubleLinkedList = new DoubleLinkedList<Integer>();
+        // DoubleLinkedList<Integer> doubleLinkedList = new DoubleLinkedList<Integer>();
 
-        doubleLinkedList.addLast(1);
-        doubleLinkedList.addLast(2);
-        doubleLinkedList.addLast(3);
-        doubleLinkedList.addLast(4);
+        // doubleLinkedList.addLast(1);
+        // doubleLinkedList.addLast(2);
+        // doubleLinkedList.addLast(3);
+        // doubleLinkedList.addLast(4);
 
         // doubleLinkedList.printForward();
-        doubleLinkedList.printBackward();
+        // doubleLinkedList.printBackward();
+
+        StaticStack<Integer> stack = new StaticStack<Integer>(5);
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.push(5);
+        stack.printStack();
 
     }
 }

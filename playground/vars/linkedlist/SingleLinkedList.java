@@ -1,4 +1,4 @@
-package vars;
+package vars.linkedlist;
 
 import node.SingleNode;
 

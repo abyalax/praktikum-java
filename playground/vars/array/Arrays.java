@@ -1,4 +1,4 @@
-package vars;
+package vars.array;
 
 public class Arrays<T> {
     private Object[] data;
