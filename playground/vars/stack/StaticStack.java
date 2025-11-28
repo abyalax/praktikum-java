@@ -17,6 +17,19 @@ public class StaticStack<T> {
         return top == -1;
     }
 
+    @SuppressWarnings("unchecked")
+    public T pop() {
+        if (isEmpty()) {
+            System.out.println("Stack is Empty");
+            return null;
+        } else {
+            T value = (T) data[top];
+            data[top] = null;
+            top--;
+            return value;
+        }
+    }
+
     public void printStack() {
         if (isEmpty()) {
             System.out.println("Stack is Empty");

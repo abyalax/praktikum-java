@@ -39,6 +39,13 @@ public class Main {
         stack.push(3);
         stack.push(4);
         stack.push(5);
+
+        stack.printStack();
+
+        Integer valuePop = stack.pop();
+
+        System.out.println("Pop data: " + valuePop);
+
         stack.printStack();
 
     }
