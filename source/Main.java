@@ -1,7 +1,5 @@
 import custom.Mahasiswa;
-import vars.stack.DynamicStack;
-import vars.stack.LinkedStack;
-import vars.stack.StaticStack;
+import vars.tree.BinaryTree;
 
 public class Main {
     public static void main(String[] args) {
@@ -173,5 +171,32 @@ public class Main {
 
         // stackMahasiswa.printStack();
         // System.out.println("Size: " + stackMahasiswa.size());
+
+        // ============================================================
+        // 8. Tree - Binary Tree
+        // ============================================================
+
+        // BinaryTree<Mahasiswa> treeMahasiswa = new BinaryTree<Mahasiswa>();
+
+        // treeMahasiswa.insertNode(new Mahasiswa("Deni", "24562020031", 3));
+        // treeMahasiswa.insertNode(new Mahasiswa("Doma", "24562020032", 3));
+        // treeMahasiswa.insertNode(new Mahasiswa("Amelia", "24562020033", 3));
+        // treeMahasiswa.insertNode(new Mahasiswa("Stefani", "24562020034", 3));
+        // treeMahasiswa.insertNode(new Mahasiswa("Mawar", "24562020035", 3));
+        // treeMahasiswa.insertNode(new Mahasiswa("Rose", "24562020036", 3));
+
+        // treeMahasiswa.inOrderTraversal();
+
+        BinaryTree<Integer> treeNumber = new BinaryTree<>();
+
+        treeNumber.insertNode(1);
+        treeNumber.insertNode(2);
+        treeNumber.insertNode(3);
+        treeNumber.insertNode(4);
+        treeNumber.insertNode(5);
+        treeNumber.insertNode(6);
+
+        treeNumber.inOrderTraversal();
+
     }
 }

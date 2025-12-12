@@ -1,6 +1,6 @@
 package custom;
 
-public class Mahasiswa {
+public class Mahasiswa implements Comparable<Mahasiswa> {
     public String name;
     public String npm;
     public int semester;
@@ -41,6 +41,27 @@ public class Mahasiswa {
         result = 31 * result + npm.hashCode();
         result = 31 * result + semester;
         return result;
+    }
+
+    @Override
+    public int compareTo(Mahasiswa o) {
+        if (this == o)
+            return 0;
+        if (o == null || getClass() != o.getClass()) // check for instance
+            return -1;
+
+        // Compare name first
+        int nameComparison = this.name.compareTo(o.name); // lexicographically for compare data string
+        if (nameComparison != 0)
+            return nameComparison;
+
+        // If names are equal, compare npm
+        int npmComparison = this.npm.compareTo(o.npm); // lexicographically
+        if (npmComparison != 0)
+            return npmComparison;
+
+        // If nmps are also equal, compare semester
+        return Integer.compare(this.semester, o.semester); // normal comparison
     }
 
 }
