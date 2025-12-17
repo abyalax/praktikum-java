@@ -1,5 +1,5 @@
 import custom.Mahasiswa;
-import vars.tree.BinaryTree;
+import vars.tree.AdvancedBinaryTree;
 
 public class Main {
     public static void main(String[] args) {
@@ -187,7 +187,7 @@ public class Main {
 
         // treeMahasiswa.inOrderTraversal();
 
-        BinaryTree<Integer> treeNumber = new BinaryTree<>();
+        AdvancedBinaryTree<Integer> treeNumber = new AdvancedBinaryTree<>();
 
         treeNumber.insertNode(1);
         treeNumber.insertNode(2);

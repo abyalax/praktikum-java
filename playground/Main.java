@@ -1,4 +1,5 @@
 import vars.stack.StaticStack;
+import vars.tree.BinaryTree;
 
 public class Main {
     public static void main(String[] args) {
@@ -33,20 +34,32 @@ public class Main {
         // doubleLinkedList.printForward();
         // doubleLinkedList.printBackward();
 
-        StaticStack<Integer> stack = new StaticStack<Integer>(5);
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        stack.push(4);
-        stack.push(5);
+        // StaticStack<Integer> stack = new StaticStack<Integer>(5);
+        // stack.push(1);
+        // stack.push(2);
+        // stack.push(3);
+        // stack.push(4);
+        // stack.push(5);
 
-        stack.printStack();
+        // stack.printStack();
 
-        Integer valuePop = stack.pop();
+        // Integer valuePop = stack.pop();
 
-        System.out.println("Pop data: " + valuePop);
+        // System.out.println("Pop data: " + valuePop);
 
-        stack.printStack();
+        // stack.printStack();
 
+        BinaryTree treeNumber = new BinaryTree();
+
+        treeNumber.insertNode(1);
+        treeNumber.insertNode(2);
+        treeNumber.insertNode(3);
+        treeNumber.insertNode(4);
+        treeNumber.insertNode(5);
+        treeNumber.insertNode(6);
+
+        treeNumber.inOrder();
+
+        System.out.println();
     }
 }
