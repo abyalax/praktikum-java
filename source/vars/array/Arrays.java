@@ -1,6 +1,10 @@
 package vars.array;
 
-public class Arrays<T> {
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.function.Predicate;
+
+public class Arrays<T> implements Iterable<T> {
     private Object[] data;
     private int size;
     private int capacity;
@@ -28,13 +32,6 @@ public class Arrays<T> {
         data[size++] = value;
     }
 
-    // ambil elemen
-    @SuppressWarnings("unchecked")
-    public T get(int index) {
-        checkIndex(index);
-        return (T) data[index];
-    }
-
     // ubah elemen
     public void set(int index, T value) {
         checkIndex(index);
@@ -42,7 +39,7 @@ public class Arrays<T> {
     }
 
     // hapus elemen di posisi tertentu
-    public void remove(int index) {
+    public void removeAt(int index) {
         checkIndex(index);
         for (int i = index; i < size - 1; i++) {
             data[i] = data[i + 1];
@@ -52,6 +49,31 @@ public class Arrays<T> {
 
     public int size() {
         return size;
+    }
+
+    public boolean remove(T data) {
+        return removeIf(e -> e.equals(data));
+    }
+
+    @SuppressWarnings("unchecked")
+    public boolean removeIf(Predicate<T> callback) {
+        boolean removed = false;
+
+        for (int i = 0; i < size; i++) {
+            if (callback.test((T) data[i])) {
+                removeAt(i);
+                i--;
+                removed = true;
+            }
+        }
+        return removed;
+    }
+
+    // ambil elemen
+    @SuppressWarnings("unchecked")
+    public T get(int index) {
+        checkIndex(index);
+        return (T) data[index];
     }
 
     @SuppressWarnings("unchecked")
@@ -104,4 +126,43 @@ public class Arrays<T> {
         }
         System.out.println(" ]");
     }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new ArrayIterator();
+    }
+
+    private class ArrayIterator implements Iterator<T> {
+
+        private int cursor = 0; // index elemen berikutnya
+        private int lastReturned = -1;
+
+        @Override
+        public boolean hasNext() {
+            return cursor < size;
+        }
+
+        @SuppressWarnings("unchecked")
+        @Override
+        public T next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+
+            lastReturned = cursor;
+            return (T) data[cursor++];
+        }
+
+        @Override
+        public void remove() {
+            if (lastReturned < 0) {
+                throw new IllegalStateException();
+            }
+
+            Arrays.this.removeAt(lastReturned);
+            cursor = lastReturned;
+            lastReturned = -1;
+        }
+    }
+
 }
